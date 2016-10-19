@@ -23,13 +23,15 @@ type QueueConfig struct {
 }
 
 type WorkerConfig struct {
-	Sms  int `json:"sms"`
-	Mail int `json:"mail"`
+	Sms   int `json:"sms"`
+	Mail  int `json:"mail"`
+	Slack int `json:"slack"`
 }
 
 type ApiConfig struct {
-	Sms  string `json:"sms"`
-	Mail string `json:"mail"`
+	Sms   string `json:"sms"`
+	Mail  string `json:"mail"`
+	Slack string `json:"slack"`
 }
 
 type GlobalConfig struct {

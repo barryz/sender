@@ -1,10 +1,10 @@
 package cron
 
 import (
-	"github.com/open-falcon/sender/g"
-	"github.com/open-falcon/sender/model"
-	"github.com/open-falcon/sender/proc"
-	"github.com/open-falcon/sender/redis"
+	"github.com/barryz/sender/g"
+	"github.com/barryz/sender/model"
+	"github.com/barryz/sender/proc"
+	"github.com/barryz/sender/redis"
 	"github.com/toolkits/net/httplib"
 	"log"
 	"time"

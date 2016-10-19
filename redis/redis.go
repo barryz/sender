@@ -2,7 +2,7 @@ package redis
 
 import (
 	"github.com/garyburd/redigo/redis"
-	"github.com/open-falcon/sender/g"
+	"github.com/barryz/sender/g"
 	"log"
 	"time"
 )

@@ -2,7 +2,7 @@ package http
 
 import (
 	"fmt"
-	"github.com/open-falcon/sender/proc"
+	"github.com/barryz/sender/proc"
 	"net/http"
 )
 
