@@ -35,6 +35,7 @@ func main() {
 	go http.Start()
 	go cron.ConsumeSms()
 	go cron.ConsumeMail()
+	go cron.ConsumeSlack()
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)

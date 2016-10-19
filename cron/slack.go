@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func CounsumeSlack() {
+func ConsumeSlack() {
 	queue := g.Config().Queue.Mail
 	for {
 		L := redis.PopAllMail(queue)
