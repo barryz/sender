@@ -4,22 +4,20 @@ import (
 	"github.com/barryz/sender/g"
 	"github.com/barryz/sender/model"
 	"github.com/barryz/sender/proc"
-	"github.com/barryz/sender/redis"
 	"github.com/toolkits/net/httplib"
 	"log"
 	"time"
 )
 
 func ConsumeSlack() {
-	queue := g.Config().Queue.Mail
 	for {
-		L := redis.PopAllMail(queue)
-		if len(L) == 0 {
+		L, ok := <-MailListChan
+		if !ok || len(L) == 0 {
 			time.Sleep(time.Microsecond * 200)
 			continue
 		}
-		SendSlackList(L)
 	}
+	SendSlackList(L)
 }
 
 func SendSlackList(L []*model.Mail) {
