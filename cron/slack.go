@@ -16,8 +16,8 @@ func ConsumeSlack() {
 			time.Sleep(time.Microsecond * 200)
 			continue
 		}
+		SendSlackList(L)
 	}
-	SendSlackList(L)
 }
 
 func SendSlackList(L []*model.Mail) {
