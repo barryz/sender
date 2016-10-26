@@ -18,7 +18,6 @@ func ConsumeMail() {
 			time.Sleep(time.Millisecond * 200)
 			continue
 		}
-		MailListChan <- L
 		SendMailList(L)
 	}
 }
