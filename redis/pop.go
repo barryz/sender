@@ -7,6 +7,38 @@ import (
 	"log"
 )
 
+func PopAllSlack(queue string) []*model.Slack {
+	ret := []*model.Slack{}
+
+	rc := ConnPool.Get()
+	defer rc.Close()
+
+	for {
+		reply, err := redis.String(rc.Do("RPOP", queue))
+		if err != nil {
+			if err != redis.ErrNil {
+				log.Println(err)
+			}
+			break
+		}
+
+		if reply == "" || reply == "nil" {
+			continue
+		}
+
+		var slack model.Slack
+		err = json.Unmarshal([]byte(reply), &slack)
+		if err != nil {
+			log.Println(err, reply)
+			continue
+		}
+
+		ret = append(ret, &slack)
+	}
+
+	return ret
+}
+
 func PopAllSms(queue string) []*model.Sms {
 	ret := []*model.Sms{}
 

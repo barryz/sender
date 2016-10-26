@@ -10,7 +10,8 @@
   },
   "queue": {
     "sms": "/sms",
-    "mail": "/mail"
+    "mail": "/mail",
+    "slack": "/slack"
   },
   "worker": {
     "sms": 10,

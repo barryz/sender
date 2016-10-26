@@ -18,8 +18,9 @@ type RedisConfig struct {
 }
 
 type QueueConfig struct {
-	Sms  string `json:"sms"`
-	Mail string `json:"mail"`
+	Sms   string `json:"sms"`
+	Mail  string `json:"mail"`
+	Slack string `json:"slack"`
 }
 
 type WorkerConfig struct {
