@@ -1,13 +1,14 @@
 package cron
 
 import (
+	"log"
+	"time"
+
 	"github.com/barryz/sender/g"
 	"github.com/barryz/sender/model"
 	"github.com/barryz/sender/proc"
 	"github.com/barryz/sender/redis"
 	"github.com/toolkits/net/httplib"
-	"log"
-	"time"
 )
 
 func ConsumeSlack() {
@@ -15,7 +16,7 @@ func ConsumeSlack() {
 	for {
 		L := redis.PopAllSlack(queue)
 		if len(L) == 0 {
-			time.Sleep(200 * time.Microsecond)
+			time.Sleep(200 * time.Millisecond)
 			continue
 		}
 		SendSlackList(L)
@@ -35,7 +36,7 @@ func SendSlack(slack *model.Slack) {
 	}()
 
 	url := g.Config().Api.Slack
-	r := httplib.Post(url).SetTimeout(5 * time.Second, 2 * time.Minute)
+	r := httplib.Post(url).SetTimeout(5*time.Second, 2*time.Minute)
 	r.Param("title", slack.Title)
 	r.Param("status", slack.Status)
 	r.Param("content", slack.Content)
