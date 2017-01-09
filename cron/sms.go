@@ -1,13 +1,14 @@
 package cron
 
 import (
-	"github.com/barryz/sender/g"
-	"github.com/barryz/sender/model"
-	"github.com/barryz/sender/proc"
-	"github.com/barryz/sender/redis"
-	"github.com/toolkits/net/httplib"
 	"log"
+	"sender/g"
+	"sender/model"
+	"sender/proc"
+	"sender/redis"
 	"time"
+
+	"github.com/toolkits/net/httplib"
 )
 
 func ConsumeSms() {

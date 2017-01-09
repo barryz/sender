@@ -16,9 +16,20 @@ type Mail struct {
 }
 
 type Slack struct {
-	Status  string `json:"status"`
-	Title   string `json:"title"`
-	Content string `json:"content"`
+	Channel string        `json:"channel"`
+	Content *SlackContent `json:"content"`
+}
+
+type SlackContent struct {
+	EndPoint     string `json:"endpoint"`
+	Note         string `json:"note"`
+	Status       string `json:"status"`
+	Priority     string `json:"priority"`
+	Metric       string `json:"metric"`
+	CurrentValue string `json:"current_value"`
+	Expression   string `json:"expr"`
+	AlarmCount   string `json:"alarm_count"`
+	TriggerTime  string `json:"trigger_time"`
 }
 
 func (this *Sms) String() string {
@@ -40,9 +51,8 @@ func (this *Mail) String() string {
 
 func (this *Slack) String() string {
 	return fmt.Sprintf(
-		"<Title:%s, Status:%s, Content:%s>",
-		this.Title,
-		this.Status,
+		"<Channel: %s, Content:%v>",
+		this.Channel,
 		this.Content,
 	)
 }

@@ -3,12 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/barryz/sender/cron"
-	"github.com/barryz/sender/g"
-	"github.com/barryz/sender/http"
-	"github.com/barryz/sender/redis"
 	"os"
 	"os/signal"
+	"sender/cron"
+	"sender/g"
+	"sender/http"
+	"sender/redis"
 	"syscall"
 )
 

@@ -1,13 +1,14 @@
 package cron
 
 import (
-	"github.com/barryz/sender/g"
-	"github.com/barryz/sender/model"
-	"github.com/barryz/sender/proc"
-	"github.com/barryz/sender/redis"
-	"github.com/toolkits/net/httplib"
 	"log"
+	"sender/g"
+	"sender/model"
+	"sender/proc"
+	"sender/redis"
 	"time"
+
+	"github.com/toolkits/net/httplib"
 )
 
 func ConsumeMail() {
@@ -35,7 +36,7 @@ func SendMail(mail *model.Mail) {
 	}()
 
 	url := g.Config().Api.Mail
-	r := httplib.Post(url).SetTimeout(5 * time.Second, 2 * time.Minute)
+	r := httplib.Post(url).SetTimeout(5*time.Second, 2*time.Minute)
 	r.Param("tos", mail.Tos)
 	r.Param("subject", mail.Subject)
 	r.Param("content", mail.Content)

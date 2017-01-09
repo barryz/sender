@@ -1,10 +1,11 @@
 package http
 
 import (
-	"github.com/barryz/sender/g"
-	"github.com/toolkits/file"
 	"net/http"
+	"sender/g"
 	"strings"
+
+	"github.com/toolkits/file"
 )
 
 func configCommonRoutes() {

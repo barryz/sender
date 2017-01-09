@@ -1,10 +1,11 @@
 package redis
 
 import (
-	"github.com/garyburd/redigo/redis"
-	"github.com/barryz/sender/g"
 	"log"
+	"sender/g"
 	"time"
+
+	"github.com/garyburd/redigo/redis"
 )
 
 var ConnPool *redis.Pool

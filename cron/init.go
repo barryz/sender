@@ -1,12 +1,12 @@
 package cron
 
 import (
-	"github.com/barryz/sender/g"
+	"sender/g"
 )
 
 var (
-	SmsWorkerChan  chan int
-	MailWorkerChan chan int
+	SmsWorkerChan   chan int
+	MailWorkerChan  chan int
 	SlackWorkerChan chan int
 )
 

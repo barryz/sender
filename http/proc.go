@@ -2,8 +2,8 @@ package http
 
 import (
 	"fmt"
-	"github.com/barryz/sender/proc"
 	"net/http"
+	"sender/proc"
 )
 
 func configProcRoutes() {

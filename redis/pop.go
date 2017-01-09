@@ -2,9 +2,10 @@ package redis
 
 import (
 	"encoding/json"
-	"github.com/garyburd/redigo/redis"
-	"github.com/barryz/sender/model"
 	"log"
+	"sender/model"
+
+	"github.com/garyburd/redigo/redis"
 )
 
 func PopAllSlack(queue string) []*model.Slack {

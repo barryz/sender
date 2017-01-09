@@ -2,10 +2,10 @@ package http
 
 import (
 	"encoding/json"
-	"github.com/barryz/sender/g"
 	"log"
 	"net/http"
 	_ "net/http/pprof"
+	"sender/g"
 )
 
 type Dto struct {

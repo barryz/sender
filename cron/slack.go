@@ -1,13 +1,15 @@
 package cron
 
 import (
+	"encoding/json"
 	"log"
 	"time"
 
-	"github.com/barryz/sender/g"
-	"github.com/barryz/sender/model"
-	"github.com/barryz/sender/proc"
-	"github.com/barryz/sender/redis"
+	"sender/g"
+	"sender/model"
+	"sender/proc"
+	"sender/redis"
+
 	"github.com/toolkits/net/httplib"
 )
 
@@ -36,10 +38,14 @@ func SendSlack(slack *model.Slack) {
 	}()
 
 	url := g.Config().Api.Slack
+	slackContent, err := json.Marshal(slack.Content)
+	if err != nil {
+		log.Printf("[ERROR]: parse slack alarm content fail due to %s", err.Error())
+		return
+	}
 	r := httplib.Post(url).SetTimeout(5*time.Second, 2*time.Minute)
-	r.Param("title", slack.Title)
-	r.Param("status", slack.Status)
-	r.Param("content", slack.Content)
+	r.Param("channel", slack.Channel)
+	r.Param("content", string(slackContent))
 	resp, err := r.String()
 	if err != nil {
 		log.Println(err)
