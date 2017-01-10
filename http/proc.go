@@ -9,7 +9,7 @@ import (
 func configProcRoutes() {
 
 	http.HandleFunc("/count", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(fmt.Sprintf("sms:%v, mail:%v", proc.GetSmsCount(), proc.GetMailCount())))
+		w.Write([]byte(fmt.Sprintf("{\"mail\": %d, \"sms\": %d, \"slack\": %d}", proc.GetSmsCount(), proc.GetMailCount(), proc.GetSlackCount())))
 	})
 
 }
