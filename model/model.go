@@ -26,6 +26,7 @@ type SlackContent struct {
 	Status       string `json:"status"`
 	Priority     string `json:"priority"`
 	Metric       string `json:"metric"`
+	Tags         string `json:"tags"`
 	CurrentValue string `json:"current_value"`
 	Expression   string `json:"expr"`
 	AlarmCount   string `json:"alarm_count"`
