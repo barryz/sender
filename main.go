@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"sender/cron"
 	"sender/g"
+	v "sender/version"
 	"sender/http"
 	"sender/redis"
 	"syscall"
@@ -19,7 +20,7 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		fmt.Println(g.VERSION)
+		fmt.Println(v.Build)
 		os.Exit(0)
 	}
 

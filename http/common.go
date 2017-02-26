@@ -3,6 +3,7 @@ package http
 import (
 	"net/http"
 	"sender/g"
+	v "sender/version"
 	"strings"
 
 	"github.com/toolkits/file"
@@ -14,7 +15,7 @@ func configCommonRoutes() {
 	})
 
 	http.HandleFunc("/version", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(g.VERSION))
+		w.Write([]byte(v.Build))
 	})
 
 	http.HandleFunc("/workdir", func(w http.ResponseWriter, r *http.Request) {
